@@ -9,6 +9,41 @@ namespace OurFileBrowser
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Geef argument!");
+            } else
+            {
+                switch (args[0])
+                {
+                    case "-c":
+                        ShowCurrentDirectory();
+                        break;
+                    case "-f":
+                        ShowAllFilesINCurrentDirectory();
+                        break;
+                    default:
+                        Console.WriteLine("Onbekend argument");
+                        break;
+                }
+            }
+
         }
+        static void ShowCurrentDirectory()
+        {
+            //Console.WriteLine("Current Directory:");
+            Console.WriteLine("Current Directory:" + System.IO.Directory.GetCurrentDirectory());
+            
+        }
+        static void ShowAllFilesINCurrentDirectory()
+        {
+            string dir = System.IO.Directory.GetCurrentDirectory();
+            //Console.WriteLine("Alle files in current directory");
+            Console.WriteLine("Alle files in de directory:" + System.IO.Directory.GetFiles(dir));
+        }
+
+        
+
+
     }
 }
