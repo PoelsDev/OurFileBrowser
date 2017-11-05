@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace OurFileBrowser
 {
@@ -20,7 +21,7 @@ namespace OurFileBrowser
                         ShowCurrentDirectory();
                         break;
                     case "-f":
-                        ShowAllFilesINCurrentDirectory();
+                        ShowAllFilesInCurrentDirectory();
                         break;
                     default:
                         Console.WriteLine("Onbekend argument");
@@ -35,11 +36,17 @@ namespace OurFileBrowser
             Console.WriteLine("Current Directory:" + System.IO.Directory.GetCurrentDirectory());
             
         }
-        static void ShowAllFilesINCurrentDirectory()
+        static void ShowAllFilesInCurrentDirectory()
         {
-            string dir = System.IO.Directory.GetCurrentDirectory();
+            //string dir = System.IO.Directory.GetCurrentDirectory();
             //Console.WriteLine("Alle files in current directory");
-            Console.WriteLine("Alle files in de directory:" + System.IO.Directory.GetFiles(dir));
+            //Console.WriteLine("Alle files in de directory:" + System.IO.Directory.GetFiles(dir));
+            string[] dirs = Directory.GetFiles(Environment.CurrentDirectory);
+            foreach (string dir in dirs)
+            {
+                Console.WriteLine(Path.GetFileName(dir));
+            }
+            Console.WriteLine();
         }
 
         
