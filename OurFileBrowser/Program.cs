@@ -29,6 +29,9 @@ namespace OurFileBrowser
                     case "-h":
                         ShowHelp();
                         break;
+                    case "-k":
+                        ChangeColor();
+                        break;
                     default:
                         Console.WriteLine("Onbekend argument");
                         break;
@@ -89,6 +92,33 @@ namespace OurFileBrowser
             Console.WriteLine("- ofb -f: Toont alle files in de huidige directory");
             Console.WriteLine("- ofb (zonder argumenten): Toont de huidige directory, alle files en alle subdirectories");
             Console.WriteLine("- ofb -h: Toont help");
+        }
+        static void ChangeColor()
+        {
+            Console.WriteLine("Welke kleur wil je graag?");
+            Console.WriteLine("Kies tussen: rood, groen, blauw, geel.");
+            string kleur = Console.ReadLine();          
+            switch (kleur)
+            {
+                case "rood":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                case "groen":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                case "blauw":
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                case "geel":
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+
+            }
+
         }
 
         
