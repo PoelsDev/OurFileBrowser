@@ -81,7 +81,7 @@ namespace OurFileBrowser
             for (int i = 0; i < fileArray.Length; i++)
             {
 
-               Console.WriteLine(fileArray[i]);
+               Console.WriteLine(Path.GetFileName(fileArray[i]));
             }
         }
         static void ShowHelp()
