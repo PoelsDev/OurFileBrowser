@@ -51,7 +51,7 @@ namespace OurFileBrowser
         static void ShowCurrentDirectory()
         {
             //Console.WriteLine("Current Directory:");
-            Console.WriteLine("Current Directory:" + System.IO.Directory.GetCurrentDirectory());
+            Console.WriteLine("Current Directory:" + Directory.GetCurrentDirectory());
             
         }
         static void ShowAllFilesInCurrentDirectory()
