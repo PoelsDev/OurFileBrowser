@@ -12,7 +12,7 @@ namespace OurFileBrowser
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Geef argument!");
+                ShowDefault();
             } else
             {
                 switch (args[0])
@@ -23,12 +23,24 @@ namespace OurFileBrowser
                     case "-f":
                         ShowAllFilesInCurrentDirectory();
                         break;
+                    case "-d":
+                        ShowAlleSubDirsInCurrentDir();
+                        break;               
                     default:
                         Console.WriteLine("Onbekend argument");
                         break;
                 }
             }
 
+        }
+        static void ShowDefault()
+        {
+            Console.WriteLine("Current Directory:");
+            ShowCurrentDirectory();
+            Console.WriteLine("Alle Subdirs:");
+            ShowAlleSubDirsInCurrentDir();
+            Console.WriteLine("Alle files:");
+            ShowAllFilesInCurrentDirectory();
         }
         static void ShowCurrentDirectory()
         {
@@ -47,6 +59,23 @@ namespace OurFileBrowser
                 Console.WriteLine(Path.GetFileName(dir));
             }
             Console.WriteLine();
+        }
+        static void ShowAlleSubDirsInCurrentDir()
+        {
+            //string[] subdirs = Directory.GetDirectories(Environment.CurrentDirectory);
+            //foreach (string dir in subdirs)
+            //{
+            //    Console.WriteLine(Path.GetDirectoryName(dir));
+            //}
+            //Console.WriteLine();
+            //var directories = Directory.GetDirectories(Environment.CurrentDirectory);
+            //Console.WriteLine(directories);
+            string[] fileArray = Directory.GetDirectories(Environment.CurrentDirectory);
+            for (int i = 0; i < fileArray.Length; i++)
+            {
+
+               Console.WriteLine(fileArray[i]);
+            }
         }
 
         
