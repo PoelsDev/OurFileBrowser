@@ -25,7 +25,10 @@ namespace OurFileBrowser
                         break;
                     case "-d":
                         ShowAlleSubDirsInCurrentDir();
-                        break;               
+                        break;
+                    case "-h":
+                        ShowHelp();
+                        break;
                     default:
                         Console.WriteLine("Onbekend argument");
                         break;
@@ -56,7 +59,8 @@ namespace OurFileBrowser
             string[] dirs = Directory.GetFiles(Environment.CurrentDirectory);
             foreach (string dir in dirs)
             {
-                Console.WriteLine(Path.GetFileName(dir));
+                Int64 fileSizeInBytes = new FileInfo(dir).Length;
+                Console.WriteLine(Path.GetFileName(dir) + "         " + fileSizeInBytes + " bytes");
             }
             Console.WriteLine();
         }
@@ -76,6 +80,15 @@ namespace OurFileBrowser
 
                Console.WriteLine(fileArray[i]);
             }
+        }
+        static void ShowHelp()
+        {
+            Console.WriteLine("Help - ofb = OurFileBrowser.exe:");
+            Console.WriteLine("- ofb -c: Toont de huidige directory");
+            Console.WriteLine("- ofb -d: Toont alle subdirectories in  de huidige directory");
+            Console.WriteLine("- ofb -f: Toont alle files in de huidige directory");
+            Console.WriteLine("- ofb (zonder argumenten): Toont de huidige directory, alle files en alle subdirectories");
+            Console.WriteLine("- ofb -h: Toont help");
         }
 
         
