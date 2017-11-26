@@ -92,6 +92,7 @@ namespace OurFileBrowser
             Console.WriteLine("- ofb -f: Toont alle files in de huidige directory");
             Console.WriteLine("- ofb (zonder argumenten): Toont de huidige directory, alle files en alle subdirectories");
             Console.WriteLine("- ofb -h: Toont help");
+            Console.WriteLine("- ofb -k: verander de kleur van de console");
         }
         static void ChangeColor()
         {
